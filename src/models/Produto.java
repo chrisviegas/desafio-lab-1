@@ -52,8 +52,7 @@ public class Produto {
         return "Produto{" +
                 "nome='" + nome + '\'' +
                 ", preco=" + preco +
+                ", data=" + data +
                 '}';
     }
-
-
 }
