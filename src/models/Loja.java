@@ -6,15 +6,24 @@ public class Loja {
     private Integer quantidadeFuncionarios;
     private Double salarioBaseFuncionario;
 
-    public Loja(String nome, Integer quantidadeFuncionarios, Double salarioBaseFuncionario) {
+    private Endereco endereco;
+    private Data data;
+
+    public Loja () {}
+
+    public Loja(String nome, Integer quantidadeFuncionarios, Double salarioBaseFuncionario, Endereco endereco, Data data) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.data = data;
     }
-     public Loja(String nome, Integer quantidadeFuncionarios) {
+     public Loja(String nome, Integer quantidadeFuncionarios, Endereco endereco, Data data) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1.0;
+         this.endereco = endereco;
+         this.data = data;
      }
 
     public String getNome() {
@@ -39,6 +48,22 @@ public class Loja {
 
     public void setSalarioBaseFuncionario(Double salarioBaseFuncionario) {
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Data getData() {
+        return data;
+    }
+
+    public void setData(Data data) {
+        this.data = data;
     }
 
     @Override
