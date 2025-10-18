@@ -1,7 +1,3 @@
-package models;
-
-import java.util.List;
-
 public class Loja {
 
     private String nome;
@@ -9,29 +5,46 @@ public class Loja {
     private Integer salarioBaseFuncionario;
 
     private Endereco endereco;
-    private Data data;
+    private Data dataFundacao;
 
     private Produto[] estoqueProdutos;
 
-    public Loja () {}
+    public Loja() {
+    }
 
     public Loja(String nome, Integer quantidadeFuncionarios) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.salarioBaseFuncionario = -1;
+        this.estoqueProdutos = new Produto[0];
     }
 
-    public Loja(String nome, Integer quantidadeFuncionarios, Integer salarioBaseFuncionario) {
+    public Loja(String nome, Integer quantidadeFuncionarios, Integer salarioBaseFuncionario, Endereco endereco, Data dataFundacao, Integer tamanhoEstoque) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.estoqueProdutos = new Produto[tamanhoEstoque];
     }
-     public Loja(String nome, Integer quantidadeFuncionarios, Endereco endereco, Data data) {
+
+    public Loja(String nome, Integer quantidadeFuncionarios, Integer salarioBaseFuncionario, Endereco endereco, Data dataFundacao) {
+        this.nome = nome;
+        this.quantidadeFuncionarios = quantidadeFuncionarios;
+        this.salarioBaseFuncionario = salarioBaseFuncionario;
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.estoqueProdutos = new Produto[0];
+    }
+
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int tamanhoEstoque) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = -1;
-         this.endereco = endereco;
-         this.data = data;
-     }
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.estoqueProdutos = new Produto[tamanhoEstoque];
+    }
 
     public String getNome() {
         return nome;
@@ -65,12 +78,12 @@ public class Loja {
         this.endereco = endereco;
     }
 
-    public Data getData() {
-        return data;
+    public Data getDataFundacao() {
+        return dataFundacao;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setDataFundacao(Data dataFundacao) {
+        this.dataFundacao = dataFundacao;
     }
 
     public Produto[] getEstoqueProdutos() {
@@ -78,7 +91,7 @@ public class Loja {
     }
 
     public double gastosComSalario() {
-        if (salarioBaseFuncionario < 0) {
+        if (salarioBaseFuncionario == null || salarioBaseFuncionario < 0) {
             return -1;
         }
         return quantidadeFuncionarios * salarioBaseFuncionario;
@@ -135,7 +148,7 @@ public class Loja {
                 ", quantidadeFuncionarios=" + quantidadeFuncionarios +
                 ", salarioBaseFuncionario=" + salarioBaseFuncionario +
                 ", endereco=" + endereco +
-                ", data=" + data +
+                ", data=" + dataFundacao +
                 '}';
     }
 }

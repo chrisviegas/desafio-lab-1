@@ -1,5 +1,3 @@
-package models;
-
 public class Data {
 
     private Integer dia;

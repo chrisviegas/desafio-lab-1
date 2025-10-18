@@ -1,21 +1,19 @@
-package models;
-
 public class Produto {
 
     private String nome;
     private Integer preco;
 
-    private Data data;
+    private Data dataValidade;
 
     public Produto(String nome, Integer preco) {
         this.nome = nome;
         this.preco = preco;
     }
 
-    public Produto(String nome, Integer preco, Data data) {
+    public Produto(String nome, Integer preco, Data dataValidade) {
         this.nome = nome;
         this.preco = preco;
-        this.data = data;
+        this.dataValidade = dataValidade;
     }
 
     public String getNome() {
@@ -34,22 +32,22 @@ public class Produto {
         this.preco = preco;
     }
 
-    public Data getData() {
-        return data;
+    public Data getDataValidade() {
+        return dataValidade;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setDataValidade(Data dataValidade) {
+        this.dataValidade = dataValidade;
     }
 
     public boolean estaVencido(Data data) {
-        if (data.getAno() != this.data.getAno()) {
-            return data.getAno() < this.data.getAno();
+        if (data.getAno() != this.dataValidade.getAno()) {
+            return data.getAno() < this.dataValidade.getAno();
         }
-        if (data.getMes() != this.data.getMes()) {
-            return data.getMes() < this.data.getMes();
+        if (data.getMes() != this.dataValidade.getMes()) {
+            return data.getMes() < this.dataValidade.getMes();
         }
-        return data.getDia() < this.data.getDia();
+        return data.getDia() < this.dataValidade.getDia();
     }
 
     @Override
@@ -57,7 +55,7 @@ public class Produto {
         return "Produto{" +
                 "nome='" + nome + '\'' +
                 ", preco=" + preco +
-                ", data=" + data +
+                ", data=" + dataValidade +
                 '}';
     }
 }

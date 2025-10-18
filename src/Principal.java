@@ -1,8 +1,3 @@
-import models.Data;
-import models.Endereco;
-import models.Loja;
-import models.Produto;
-
 import java.util.Scanner;
 
 public class Principal {
@@ -25,7 +20,7 @@ public class Principal {
                 System.out.print("Quantidade de funcionários: ");
                 int qtdFuncionarios = sc.nextInt();
                 System.out.print("Salário base dos funcionários: ");
-                double salarioBase = sc.nextDouble();
+                int salarioBase = sc.nextInt();
 
                 System.out.println("Endereço da loja: ");
                 System.out.print("Nome da rua: ");
@@ -61,7 +56,7 @@ public class Principal {
                 System.out.print("Nome do produto: ");
                 String nomeProduto = sc.next();
                 System.out.print("Preço do produto: ");
-                double precoProduto = sc.nextDouble();
+                int precoProduto = sc.nextInt();
 
                 System.out.println("Data de validade do produto: ");
                 System.out.print("Dia: ");
