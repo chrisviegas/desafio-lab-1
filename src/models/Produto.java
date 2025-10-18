@@ -3,11 +3,16 @@ package models;
 public class Produto {
 
     private String nome;
-    private Double preco;
+    private Integer preco;
 
     private Data data;
 
-    public Produto(String nome, Double preco, Data data) {
+    public Produto(String nome, Integer preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public Produto(String nome, Integer preco, Data data) {
         this.nome = nome;
         this.preco = preco;
         this.data = data;
@@ -21,11 +26,11 @@ public class Produto {
         this.nome = nome;
     }
 
-    public Double getPreco() {
+    public Integer getPreco() {
         return preco;
     }
 
-    public void setPreco(Double preco) {
+    public void setPreco(Integer preco) {
         this.preco = preco;
     }
 

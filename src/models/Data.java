@@ -7,11 +7,11 @@ public class Data {
     private Integer ano;
 
     public Data(Integer dia, Integer mes, Integer ano) {
-        if (validarData(dia, mes, ano)) {
-            this.dia = dia;
-            this.mes = mes;
-            this.ano = ano;
-        } else {
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+
+        if (!validarData()) {
             System.out.println("Data inválida! Definindo para data padrão: 1/1/2000");
             this.dia = 1;
             this.mes = 1;
@@ -43,20 +43,20 @@ public class Data {
         this.ano = ano;
     }
 
-    private boolean validarData(Integer dia, Integer mes, Integer ano) {
+    private boolean validarData() {
         if (mes < 1 || mes > 12) return false;
         if (dia < 1) return false;
 
         int[] diasPorMes = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        if (verificaAnoBissexto(ano) && mes == 2) {
+        if (verificaAnoBissexto() && mes == 2) {
             return dia <= 29;
         }
 
         return dia <= diasPorMes[mes];
     }
 
-    private boolean verificaAnoBissexto(Integer ano) {
+    public boolean verificaAnoBissexto() {
         return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
     }
 

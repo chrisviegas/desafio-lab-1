@@ -53,7 +53,10 @@ public class Principal {
                 int ano = sc.nextInt();
                 Data dataLoja = new Data(dia, mes, ano);
 
-                loja = new Loja(nomeLoja, qtdFuncionarios, salarioBase, enderecoLoja, dataLoja);
+                System.out.print("Qual o tamanho do estoque de produtos da loja? ");
+                int tamanhoEstoque = sc.nextInt();
+
+                loja = new Loja(nomeLoja, qtdFuncionarios, salarioBase, enderecoLoja, dataLoja, tamanhoEstoque);
             case 2:
                 System.out.print("Nome do produto: ");
                 String nomeProduto = sc.next();
